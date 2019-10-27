@@ -1,21 +1,21 @@
 {
-  "name": "proyectoiparcialloreste",
+  "name": "proyectopresupuestoap",
   "version": "1.0.0",
-  "description": "Proyecto primer parcial Seminario de software (presupuesto)",
+  "description": "Proyecto I parcial de presupuesto",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lorempd/ProyectoPrimerParcialLoresteSS.git"
+    "url": "git+https://github.com/pacheco2396/1ProyectoSeminario.git"
   },
-  "author": "Loreste Marcel",
+  "author": "Alberto Pacheco",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lorempd/ProyectoPrimerParcialLoresteSS/issues"
+    "url": "https://github.com/pacheco2396/1ProyectoSeminario/issues"
   },
-  "homepage": "https://github.com/lorempd/ProyectoPrimerParcialLoresteSS#readme",
+  "homepage": "https://github.com/pacheco2396/1ProyectoSeminario#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
