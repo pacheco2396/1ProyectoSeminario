@@ -1,0 +1,24 @@
+<div class="col-md-6 mx-auto">
+<form action="/presupuesto/nuevoDetallePresupuesto" method="POST">
+    <h1>Crear un nuevo detalle del presupuesto</h1>
+  <input type="text" name="presupuesto" readonly hidden value="{{presupuesto._id}}">
+  <div class="form-group">
+    <label for="exampleInputPassword1">Descripción</label>
+    <textarea type="text" class="form-control"  placeholder="Descripción" name="descripcion"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Tipo</label>
+    <select name="tipo" class="form-control">
+      <option value="Gasto">Gasto</option>
+      <option value="Ingreso">Ingreso</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">Valor estimado</label>
+    <input type="number" class="form-control"  placeholder="Valor estimado" name="valorPrevisto">
+  </div>
+  
+  <button type="submit" class="btn btn-success btn-block">Guardar</button>
+</form>
+</div>
