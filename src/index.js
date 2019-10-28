@@ -29,7 +29,7 @@ app.set('view engine', '.hbs');
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 app.use(session({
-    secret:'loreste',
+    secret:'pacheco',
     resave: true,
     saveUninitialized: true
 }));

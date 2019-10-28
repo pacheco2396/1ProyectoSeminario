@@ -30,7 +30,7 @@ router.post('/presupuesto/nuevoPresupuesto', isAuthenticated, async (req, res) =
       errors.push({text: 'Ingrese la descripción'});
     }
     if (!ingresoIncial) {
-        errors.push({text: 'Ingrese el ingreso'});
+        errors.push({text: 'Ingrese el monto'});
       }
     if (errors.length > 0) {
       res.render('presupuesto/nuevoPresupuesto', {
@@ -43,7 +43,7 @@ router.post('/presupuesto/nuevoPresupuesto', isAuthenticated, async (req, res) =
       const newPresupuesto = new Presupuesto({nombre, descripcion, ingresoIncial});
       newPresupuesto.usuario = req.user.id;
       await newPresupuesto.save();
-      req.flash('success_msg', 'Presupuesto creado satisfactoriamente');
+      req.flash('success_msg', 'Presupuesto creado correctamente');
       res.redirect('/presupuesto');
     }
   });
@@ -66,14 +66,14 @@ router.get('/presupuesto/editar/:id',isAuthenticated, async (req, res) => {
 router.put('/presupuesto/editarPresupuesto/:id',isAuthenticated, async (req, res) => {
     const { nombre, descripcion, ingresoIncial} = req.body;
     await Presupuesto.findByIdAndUpdate(req.params.id, {nombre, descripcion, ingresoIncial});
-    req.flash('success_msg', 'Presupuesto actualizado correctamente');
+    req.flash('success_msg', 'Presupuesto actualizado satisfactoriamente');
     res.redirect('/presupuesto');
   });
 
 //Ruta para eliminar un presupuesto
 router.delete('/presupuesto/eliminar/:id',isAuthenticated, async (req, res) => {
     await Presupuesto.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Presupuesto eliminado correctamente');
+    req.flash('success_msg', 'Presupuesto eliminado satisfactoriamente');
     res.redirect('/presupuesto');
   });
 
@@ -98,13 +98,13 @@ router.post('/presupuesto/nuevoDetallePresupuesto', isAuthenticated, async (req,
     //Declaramos un arreglo para los posibles errores
     const errors = [];
     if (!descripcion) {
-      errors.push({text: 'Ingrese la descripción'});
+      errors.push({text: 'Ingrese una descripción'});
     }
     if (!tipo) { 
-        errors.push({text: 'Ingrese el tipo'});
+        errors.push({text: 'Ingrese el tipo de presupuesto'});
       }
       if (!valorPrevisto) {
-        errors.push({text: 'Ingrese un valor estimado'});
+        errors.push({text: 'Ingrese el monto estimado'});
       }
     if (errors.length > 0) {
       res.render('presupuesto/nuevoDetallePresupuesto', {
@@ -117,7 +117,7 @@ router.post('/presupuesto/nuevoDetallePresupuesto', isAuthenticated, async (req,
     } else {
       const newDetallePresupuesto = new DetallesPresupuesto({presupuesto, descripcion, tipo,valorPrevisto});
       await newDetallePresupuesto.save();
-      req.flash('success_msg', 'Detalle creado satisfactoriamente');
+      req.flash('success_msg', 'Detalle creado de manera correcta');
       res.redirect('/presupuesto/verDetalles/'+presupuesto);
     }
 });
@@ -132,7 +132,7 @@ router.get('/detallePresupuesto/editar/:id',isAuthenticated, async (req, res) =>
 router.put('/detallePresupuesto/editarDetallePresupuesto/:id',isAuthenticated, async (req, res) => {
   const {presupuesto, descripcion, tipo, valorPrevisto, valorReal} = req.body;
   await DetallesPresupuesto.findByIdAndUpdate(req.params.id, {descripcion, tipo, valorPrevisto, valorReal});
-  req.flash('success_msg', 'Detalle actializado correctamente');
+  req.flash('success_msg', 'Detalle actualizado satisfactoriamente');
   res.redirect('/presupuesto/verDetalles/' + presupuesto);
 });
 
@@ -140,7 +140,7 @@ router.put('/detallePresupuesto/editarDetallePresupuesto/:id',isAuthenticated, a
 router.get('/detallePresupuesto/eliminar/:id',isAuthenticated, async (req, res) => {
   const detalle = await DetallesPresupuesto.findById(req.params.id);
   await DetallesPresupuesto.findByIdAndDelete(req.params.id);
-  req.flash('success_msg', 'Detalle eliminado correctamente');
+  req.flash('success_msg', 'Detalle eliminado satisfactoriamente');
   res.redirect('/presupuesto/verDetalles/' + detalle.presupuesto);
 });
 

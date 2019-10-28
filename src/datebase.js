@@ -5,5 +5,5 @@ mongoose.connect('mongodb+srv://albertopacheco23:becks2323@pachecocluster-gyot5.
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-  .then(db =>console.log('DB esta concetada'))
+  .then(db =>console.log('La base de datos esta conectada'))
   .catch(err =>console.error(err));

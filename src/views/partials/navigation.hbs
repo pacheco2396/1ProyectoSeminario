@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="/">Presupuestos Lore</a>
+    <a class="navbar-brand" href="/">Modulo de Presupuesto</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,10 +9,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/acercaDe">Acerca de</a>
-          </li>
-      </ul>
+          </ul>
       <ul class="navbar-nav ml-auto">
         {{#if user}}
           <li class="nav-item dropdown">
@@ -20,18 +17,18 @@
               Presupuestos 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/presupuesto">Tus presupuestos</a>
+              <a class="dropdown-item" href="/presupuesto">Presupuestos en existencia</a>
               <a class="dropdown-item" href="/presupuesto/crear">Nuevo presupuesto</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/usuario/logout">Logout</a>
+              <a class="dropdown-item" href="/usuario/logout">Cerrar Sesión</a>
             </div>
           </li>
         {{else}}
           <li class="nav-item">
-            <a class="nav-link" href="/usuario/login">Login</a>
+            <a class="nav-link" href="/usuario/login">Iniciar sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/usuario/registrarse">Registrarte</a>
+            <a class="nav-link" href="/usuario/registrarse">Registrarse</a>
           </li>
         {{/if}}
       </ul>
