@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Definición del schema
+// Schema
 const detallePresupuestoSchema = new mongoose.Schema({
     presupuesto: {
       type: String,
