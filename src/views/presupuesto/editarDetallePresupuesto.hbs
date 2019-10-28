@@ -1,0 +1,42 @@
+<div class="col-md-6 mx-auto">
+<form action="/detallePresupuesto/editarDetallePresupuesto/{{detallePresupuesto._id}}?_method=PUT" method="POST">
+    <h1>Editar detalle del presupuesto</h1>
+    <input type="text" hidden readonly value="{{detallePresupuesto.presupuesto}}" name="presupuesto">
+  <div class="form-group">
+    <label for="exampleInputPassword1">Descripción</label>
+    <textarea type="text" class="form-control"  placeholder="Descripción" name="descripcion"> {{detallePresupuesto.descripcion}} </textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Tipo</label>
+    <select name="tipo" class="form-control" id="tipo">
+      <option value="Gasto">Gasto</option>
+      <option value="Ingreso">Ingreso</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">Valor estimado</label>
+    <input type="number" class="form-control"  placeholder="Valor estimado" name="valorPrevisto" value="{{detallePresupuesto.valorPrevisto}}">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Valor real</label>
+    <input type="number" class="form-control"  placeholder="Valor estimado" name="valorReal" value="{{detallePresupuesto.valorReal}}" > 
+  </div>
+  
+  <button type="submit" class="btn btn-success btn-block">Guardar</button>
+</form>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+
+<script>
+$(document).ready(function(){
+  $('#tipo').val('{{detallePresupuesto.tipo}}');
+});
+
+</script>
