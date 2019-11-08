@@ -2,7 +2,7 @@
 const router = require('express').Router();
 //Requerimos el modulo de passport
 const passport = require('passport');
-
+const authController = require("../controller/authController");
 // Modelo del usuario
 const User = require('../models/Usuario');
 
@@ -58,5 +58,18 @@ router.get('/usuario/logout', (req, res) => {
   req.flash('success_msg', 'Has cerrado tu sesión');
   res.redirect('/usuario/login');
 });
-
+// Reestablecer la contraseña del usuario
+router.get(
+  "/reestablecerPassword",
+  authController.formularioReestablecerPassword
+);
+router.post("/reestablecerPassword", authController.enviarToken);
+router.get(
+  "/reestablecerPassword/:token",
+  authController.formularioNuevoPassword
+);
+router.post(
+  "/reestablecerPassword/:token",
+  authController.almacenarNuevaPassword
+);
 module.exports = router;

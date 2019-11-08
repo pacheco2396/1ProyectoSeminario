@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const createError = require("http-errors");
 
 //Inicializaciones
 const app = express();
@@ -54,6 +55,23 @@ app.use(require('./routes/users'));
 //Archivos estaticos
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 404
+app.use((req, res, next) => {
+    next(createError(404, "La página que has solicitado no existe"));
+  });
+  
+  // Administración de los errores
+  app.use((error, req, res, next) => {
+    const status = error.status || 500;
+    res.locals.status = status;
+    res.status(status);
+  
+    res.render("error", {
+      status,
+      message: error.message
+    });
+  });
+  
 //Servidor
 app.listen(app.get('port'), () => {
     console.log('server en el puerto: ', app.get('port'))

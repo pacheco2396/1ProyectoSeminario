@@ -17,15 +17,26 @@
   },
   "homepage": "https://github.com/pacheco2396/1ProyectoSeminario#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.2",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.0.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
+    "express-validator": "^6.2.0",
+    "http-errors": "^1.7.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.5",
+    "nodemailer": "^6.3.1",
+    "nodemailer-express-handlebars": "^3.1.0",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "shortid": "^2.2.15",
+    "slug": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
